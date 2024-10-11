@@ -1,0 +1,63 @@
+<html>
+<head>
+<style>
+
+    body {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 25px;
+    }
+
+    h1 {
+        color: red;
+    }
+
+    table {
+    width: 70%;
+    border-collapse: collapse;
+    text-align: center;
+    border-radius: 10px;
+    }
+
+    th {
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 8px;
+    border: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+    background-color: #f9f9f9;
+    }
+
+    td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    }
+
+</style>
+</head>
+
+
+<body>
+    <h1>Weather Stats!</h1><br>
+    <form method="post">
+        <input placeholder="latitude" name="latitude">
+        <input placeholder="longitude" name="longitude">
+        <input type="submit">
+    </form>
+    {% if Weather %}
+    <center>
+        <table>
+            <tr><td colspan="2"><img src="{{weather.data.condition.icon}}"></img></td></tr>
+            <tr><td>place</td>{{weather.data.name}}</tr>
+            <tr>region<td></td>{{weather.data.region}}</tr>
+            <tr>country<td></td>{{weather.data.country}}</tr>
+            <tr>condition<td></td>{{weather.data.condition.text}}</tr>
+            <tr>temperature<td></td>{{weather.data.temp_c}}</tr>
+        </table>
+    </center>
+    {%endif%}
+    <p>you have {{count}} visitors</p>
+</body>
+</html>
